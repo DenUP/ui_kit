@@ -1,7 +1,7 @@
 name: ui_kit
 description: "A new Flutter package project."
 version: 0.0.1
-homepage:
+homepage: ui_kit_see
 
 environment:
   sdk: ^3.10.7
@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_svg: ^2.2.3
 
 dev_dependencies:
   flutter_test:
@@ -21,10 +22,9 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # To add assets to your package, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/icon/
   #   - images/a_dot_ham.jpeg
   #
   # For details regarding assets in packages, see
