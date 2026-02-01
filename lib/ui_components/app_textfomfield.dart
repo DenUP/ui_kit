@@ -1,5 +1,3 @@
-import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
-
 import 'package:flutter/material.dart';
 import 'package:ui_kit/app_color.dart';
 import 'package:ui_kit/app_text_style.dart';
@@ -7,6 +5,7 @@ import 'package:ui_kit/app_text_style.dart';
 class AppTextfomfield extends StatefulWidget {
   final String? value;
   final String? hintText;
+  final String? helpText;
   final bool isBorder;
   final Function(String)? onTap;
   const AppTextfomfield({
@@ -15,6 +14,7 @@ class AppTextfomfield extends StatefulWidget {
     this.hintText,
     this.isBorder = false,
     this.onTap,
+    this.helpText,
   });
 
   @override
@@ -43,39 +43,53 @@ class _AppTextfomfieldState extends State<AppTextfomfield> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 48,
-      width: 335,
-      child: FocusScope(
-        child: Focus(
-          onFocusChange: (value) {
-            setState(() {
-              _isFocus = value;
-            });
-          },
-          child: TextFormField(
-            onChanged: (value) {
-              setState(() {
-                _controller.text = value;
-                widget.onTap?.call(value);
-              });
-            },
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: AppColor.inputBg2,
-              hintText: widget.hintText,
-              hintStyle: AppTextStyle.textRegular.copyWith(
-                color: AppColor.caption,
-              ),
-              border: _border(),
-              enabledBorder: _border(),
-              errorBorder: _border(),
-              focusedBorder: _border(),
+    return Column(
+      children: [
+        if (widget.helpText != null) ...[
+          Text(
+            widget.helpText!,
+            style: AppTextStyle.captionRegular.copyWith(
+              color: AppColor.description,
             ),
-            controller: _controller,
+          ),
+          SizedBox(height: 8),
+        ],
+        SizedBox(
+          height: 48,
+          width: 335,
+          child: FocusScope(
+            child: Focus(
+              onFocusChange: (value) {
+                setState(() {
+                  _isFocus = value;
+                });
+              },
+              child: TextFormField(
+                onChanged: (value) {
+                  setState(() {
+                    _controller.text = value;
+                    widget.onTap?.call(value);
+                  });
+                },
+                decoration: InputDecoration(
+                  filled: true,
+
+                  fillColor: AppColor.inputBg2,
+                  hintText: widget.hintText,
+                  hintStyle: AppTextStyle.textRegular.copyWith(
+                    color: AppColor.caption,
+                  ),
+                  border: _border(),
+                  enabledBorder: _border(),
+                  errorBorder: _border(),
+                  focusedBorder: _border(),
+                ),
+                controller: _controller,
+              ),
+            ),
           ),
         ),
-      ),
+      ],
     );
   }
 
