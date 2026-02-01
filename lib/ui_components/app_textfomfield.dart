@@ -48,6 +48,7 @@ class _AppTextfomfieldState extends State<AppTextfomfield> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (widget.helpText != null) ...[
           Text(
