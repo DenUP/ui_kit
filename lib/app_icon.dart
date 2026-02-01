@@ -28,6 +28,8 @@ abstract class AppIcon {
       _icon('map', color: color, size: size);
   static SvgPicture minus({Color? color, double? size}) =>
       _icon('minus', color: color, size: size);
+  static SvgPicture messageCircle({Color? color, double? size}) =>
+      _icon('message-circle', color: color, size: size);
   static SvgPicture moreHorizontal({Color? color, double? size}) =>
       _icon('more-horizontal', color: color, size: size);
   static SvgPicture paperclip({Color? color, double? size}) =>
