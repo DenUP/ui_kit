@@ -58,7 +58,7 @@ abstract class AppTextStyle {
   );
   static const textMedium = TextStyle(
     fontSize: 15,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w500,
     fontFamily: 'Roboto',
   );
   static const captionRegular = TextStyle(
