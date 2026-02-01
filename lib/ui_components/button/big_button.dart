@@ -35,6 +35,10 @@ class BigButton {
       style: _buttonStyle().copyWith(
         backgroundColor: WidgetStateProperty.all<Color>(Colors.white),
         foregroundColor: WidgetStateProperty.all<Color>(AppColor.accent),
+
+        side: WidgetStateProperty.all(
+          BorderSide(color: AppColor.accent, width: 1),
+        ),
       ),
       onPressed: onTap,
       child: _text(name),
