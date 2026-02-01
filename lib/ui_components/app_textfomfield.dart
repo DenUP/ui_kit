@@ -123,7 +123,7 @@ class _AppTextfomfieldState extends State<AppTextfomfield> {
       return AppColor.icons;
     }
     if (widget.isError) {
-      return AppColor.accent;
+      return AppColor.error;
     }
     return AppColor.inputStroke2;
   }
