@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
+
 import 'package:flutter/material.dart';
 import 'package:ui_kit/app_color.dart';
 import 'package:ui_kit/app_text_style.dart';
@@ -5,7 +7,15 @@ import 'package:ui_kit/app_text_style.dart';
 class AppTextfomfield extends StatefulWidget {
   final String? value;
   final String? hintText;
-  const AppTextfomfield({super.key, this.value, this.hintText});
+  final bool isBorder;
+  final Function(String)? onTap;
+  const AppTextfomfield({
+    super.key,
+    this.value,
+    this.hintText,
+    this.isBorder = false,
+    this.onTap,
+  });
 
   @override
   State<AppTextfomfield> createState() => _AppTextfomfieldState();
@@ -22,6 +32,16 @@ class _AppTextfomfieldState extends State<AppTextfomfield> {
   }
 
   @override
+  void didUpdateWidget(covariant AppTextfomfield oldWidget) {
+    if (widget.value != oldWidget.value) {
+      setState(() {
+        _controller.text = widget.value ?? '';
+      });
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 48,
@@ -34,6 +54,12 @@ class _AppTextfomfieldState extends State<AppTextfomfield> {
             });
           },
           child: TextFormField(
+            onChanged: (value) {
+              setState(() {
+                _controller.text = value;
+                widget.onTap?.call(value);
+              });
+            },
             decoration: InputDecoration(
               filled: true,
               fillColor: AppColor.inputBg2,
@@ -63,6 +89,9 @@ class _AppTextfomfieldState extends State<AppTextfomfield> {
   Color _colorBorder() {
     if (_isFocus) {
       return AppColor.accent;
+    }
+    if (widget.isBorder && _controller.text.isNotEmpty) {
+      return AppColor.icons;
     }
     return AppColor.inputStroke2;
   }
