@@ -6,7 +6,9 @@ class AppTextfomfield extends StatefulWidget {
   final String? value;
   final String? hintText;
   final String? helpText;
+  final String? underText;
   final bool isBorder;
+  final bool isError;
   final Function(String)? onTap;
   const AppTextfomfield({
     super.key,
@@ -15,6 +17,8 @@ class AppTextfomfield extends StatefulWidget {
     this.isBorder = false,
     this.onTap,
     this.helpText,
+    this.isError = false,
+    this.underText,
   });
 
   @override
@@ -74,7 +78,9 @@ class _AppTextfomfieldState extends State<AppTextfomfield> {
                 decoration: InputDecoration(
                   filled: true,
 
-                  fillColor: AppColor.inputBg2,
+                  fillColor: widget.isError
+                      ? Color(0x1AFD3535)
+                      : AppColor.inputBg2,
                   hintText: widget.hintText,
                   hintStyle: AppTextStyle.textRegular.copyWith(
                     color: AppColor.caption,
@@ -89,6 +95,14 @@ class _AppTextfomfieldState extends State<AppTextfomfield> {
             ),
           ),
         ),
+        if (widget.underText != null) ...[
+          SizedBox(height: 8),
+
+          Text(
+            widget.underText!,
+            style: AppTextStyle.captionRegular.copyWith(color: AppColor.error),
+          ),
+        ],
       ],
     );
   }
@@ -106,6 +120,9 @@ class _AppTextfomfieldState extends State<AppTextfomfield> {
     }
     if (widget.isBorder && _controller.text.isNotEmpty) {
       return AppColor.icons;
+    }
+    if (widget.isError) {
+      return AppColor.accent;
     }
     return AppColor.inputStroke2;
   }
