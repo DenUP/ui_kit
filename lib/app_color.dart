@@ -16,4 +16,6 @@ abstract class AppColor {
 
   static const description2 = Color(0xFF7E7E9A);
   static const inputBg2 = Color(0xFFF5F5F9);
+  static const caption = Color(0xFF939396);
+  static const inputStroke2 = Color(0xFFEBEBEB);
 }
