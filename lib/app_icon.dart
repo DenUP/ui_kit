@@ -52,6 +52,10 @@ abstract class AppIcon {
       _icon('menu3', color: color, size: size);
   static SvgPicture menu4({Color? color, double? size}) =>
       _icon('menu4', color: color, size: size);
+  static SvgPicture vk({Color? color, double? size}) =>
+      _icon('vk', color: color, size: size);
+  static SvgPicture yandex({Color? color, double? size}) =>
+      _icon('yandex', color: color, size: size);
 }
 
 SvgPicture _icon(String name, {Color? color, double? size}) {
