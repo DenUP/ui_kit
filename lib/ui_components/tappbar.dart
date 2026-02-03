@@ -32,7 +32,7 @@ class _TappBarState extends State<_TappBar> {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Color(0x4DA0A0A0),
+            color: Color(0xFFA0A0A0).withOpacity(0.3),
             blurRadius: 20,
             offset: Offset(0, -0.5),
           ),
