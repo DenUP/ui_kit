@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/app_color.dart';
 import 'package:ui_kit/app_text_style.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 class AppTextfomfield extends StatefulWidget {
   final String? value;
@@ -9,6 +10,7 @@ class AppTextfomfield extends StatefulWidget {
   final String? underText;
   final bool isBorder;
   final bool isError;
+  final bool isPassword;
   final Function(String)? onTap;
   const AppTextfomfield({
     super.key,
@@ -18,6 +20,7 @@ class AppTextfomfield extends StatefulWidget {
     this.onTap,
     this.helpText,
     this.isError = false,
+    this.isPassword = false,
     this.underText,
   });
 
@@ -28,6 +31,7 @@ class AppTextfomfield extends StatefulWidget {
 class _AppTextfomfieldState extends State<AppTextfomfield> {
   late TextEditingController _controller;
   bool _isFocus = false;
+  bool _showPassword = false;
 
   @override
   void initState() {
@@ -70,6 +74,8 @@ class _AppTextfomfieldState extends State<AppTextfomfield> {
                 });
               },
               child: TextFormField(
+                obscureText: widget.isPassword && !_showPassword,
+                cursorColor: AppColor.accent,
                 onChanged: (value) {
                   setState(() {
                     _controller.text = value;
@@ -90,6 +96,18 @@ class _AppTextfomfieldState extends State<AppTextfomfield> {
                   enabledBorder: _border(),
                   errorBorder: _border(),
                   focusedBorder: _border(),
+                  suffixIcon: widget.isPassword && _controller.text.isNotEmpty
+                      ? IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _showPassword = !_showPassword;
+                            });
+                          },
+                          icon: _showPassword
+                              ? AppIcon.eyeOff()
+                              : AppIcon.eyeOn(),
+                        )
+                      : null,
                 ),
                 controller: _controller,
               ),
