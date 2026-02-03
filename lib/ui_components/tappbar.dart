@@ -57,7 +57,7 @@ class _TappBarState extends State<_TappBar> {
           BottomNavigationBarItem(
             icon: _currentIndex == 0
                 ? AppIcon.menu1(color: AppColor.accent)
-                : AppIcon.menu1(),
+                : AppIcon.menu1(color: AppColor.icons),
             label: 'Главная',
           ),
           BottomNavigationBarItem(
