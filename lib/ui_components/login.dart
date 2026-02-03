@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class Login {
-  Widget yandex(VoidCallback? onTap) {
+  Widget yandex({VoidCallback? onTap}) {
     return _allButton(AppIcon.yandex(), "Войти с Yandex", onTap);
   }
 

@@ -65,7 +65,7 @@ class _AppTextfomfieldState extends State<AppTextfomfield> {
         ],
         SizedBox(
           height: 48,
-          width: 335,
+          width: MediaQuery.of(context).size.width,
           child: FocusScope(
             child: Focus(
               onFocusChange: (value) {
