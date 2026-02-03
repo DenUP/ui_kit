@@ -46,8 +46,10 @@ class _TappBarState extends State<_TappBar> {
         unselectedItemColor: AppColor.icons,
         currentIndex: _currentIndex,
         onTap: (value) {
-          _currentIndex = value;
-          widget.onTap?.call(value);
+          setState(() {
+            _currentIndex = value;
+            widget.onTap?.call(value);
+          });
         },
         items: [
           BottomNavigationBarItem(
