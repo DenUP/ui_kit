@@ -39,6 +39,7 @@ class _TappBarState extends State<_TappBar> {
         ],
       ),
       child: BottomNavigationBar(
+        elevation: 0,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.transparent,
         selectedItemColor: AppColor.accent,
