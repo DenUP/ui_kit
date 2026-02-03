@@ -66,6 +66,6 @@ SvgPicture _icon(String name, {Color? color, double? size}) {
     colorFilter: color != null
         ? ColorFilter.mode(color, BlendMode.srcATop)
         : null,
-    package: 'ui_kit',
+    package: 'uiKit',
   );
 }
