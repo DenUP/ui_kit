@@ -75,6 +75,7 @@ class _AppTextfomfieldState extends State<AppTextfomfield> {
               },
               child: TextFormField(
                 obscureText: widget.isPassword && !_showPassword,
+                obscuringCharacter: '*',
                 cursorColor: AppColor.accent,
                 onChanged: (value) {
                   setState(() {
@@ -96,6 +97,7 @@ class _AppTextfomfieldState extends State<AppTextfomfield> {
                   enabledBorder: _border(),
                   errorBorder: _border(),
                   focusedBorder: _border(),
+
                   suffixIcon: widget.isPassword && _controller.text.isNotEmpty
                       ? IconButton(
                           onPressed: () {
