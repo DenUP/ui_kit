@@ -44,6 +44,8 @@ class _TappBarState extends State<_TappBar> {
         backgroundColor: Colors.transparent,
         selectedItemColor: AppColor.accent,
         unselectedItemColor: AppColor.icons,
+        selectedLabelStyle: AppTextStyle.headlineRegular,
+        unselectedLabelStyle: AppTextStyle.headlineRegular,
         currentIndex: _currentIndex,
         onTap: (value) {
           setState(() {
