@@ -19,6 +19,7 @@ class Login {
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
+          elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadiusGeometry.circular(12),
             side: BorderSide(color: AppColor.inputStroke2, width: 1),
