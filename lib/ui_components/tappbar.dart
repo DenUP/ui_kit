@@ -32,7 +32,7 @@ class _TappBarState extends State<_TappBar> {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Color(0xFFA0A0A0).withOpacity(0.3),
+            color: Color(0xFFA0A0A0),
             blurRadius: 20,
             offset: Offset(0, -0.5),
           ),
@@ -56,26 +56,26 @@ class _TappBarState extends State<_TappBar> {
         items: [
           BottomNavigationBarItem(
             icon: _currentIndex == 0
-                ? AppIcon.menu1(color: AppColor.accent, size: 32)
-                : AppIcon.menu1(color: AppColor.icons, size: 32),
+                ? AppIcon.menu1(color: AppColor.accent)
+                : AppIcon.menu1(color: AppColor.icons),
             label: 'Главная',
           ),
           BottomNavigationBarItem(
             icon: _currentIndex == 1
-                ? AppIcon.menu2(color: AppColor.accent, size: 32)
-                : AppIcon.menu2(size: 32),
+                ? AppIcon.menu2(color: AppColor.accent)
+                : AppIcon.menu2(),
             label: 'Каталог',
           ),
           BottomNavigationBarItem(
             icon: _currentIndex == 2
-                ? AppIcon.menu3(color: AppColor.accent, size: 32)
-                : AppIcon.menu3(size: 32),
+                ? AppIcon.menu3(color: AppColor.accent)
+                : AppIcon.menu3(),
             label: 'Проекты',
           ),
           BottomNavigationBarItem(
             icon: _currentIndex == 3
-                ? AppIcon.menu4(color: AppColor.accent, size: 32)
-                : AppIcon.menu4(size: 32),
+                ? AppIcon.menu4(color: AppColor.accent)
+                : AppIcon.menu4(),
             label: 'Профиль',
           ),
         ],
