@@ -3,7 +3,7 @@ import 'package:ui_kit/ui_kit.dart';
 
 class BottomNavigator {
   Widget build({int initialIndex = 0, ValueChanged<int>? onTap}) {
-    return _TappBar(initialIndex: initialIndex);
+    return _TappBar(initialIndex: initialIndex, onTap: onTap);
   }
 }
 
