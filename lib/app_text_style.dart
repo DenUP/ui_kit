@@ -72,7 +72,7 @@ abstract class AppTextStyle {
     fontFamily: 'Roboto',
   );
   static const caption2Regular = TextStyle(
-    fontSize: 16,
+    fontSize: 12,
     fontWeight: FontWeight.w400,
     fontFamily: 'Roboto',
   );
