@@ -44,6 +44,14 @@ abstract class AppIcon {
       _icon('send', color: color, size: size);
   static SvgPicture shoppingCart({Color? color, double? size}) =>
       _icon('shopping-cart', color: color, size: size);
+  static SvgPicture menu1({Color? color, double? size}) =>
+      _icon('menu1', color: color, size: size);
+  static SvgPicture menu2({Color? color, double? size}) =>
+      _icon('menu2', color: color, size: size);
+  static SvgPicture menu3({Color? color, double? size}) =>
+      _icon('menu3', color: color, size: size);
+  static SvgPicture menu4({Color? color, double? size}) =>
+      _icon('menu4', color: color, size: size);
 }
 
 SvgPicture _icon(String name, {Color? color, double? size}) {

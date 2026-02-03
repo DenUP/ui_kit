@@ -39,16 +39,39 @@ class _TappBarState extends State<_TappBar> {
         ],
       ),
       child: BottomNavigationBar(
+        backgroundColor: Colors.transparent,
+        selectedItemColor: AppColor.accent,
+        unselectedItemColor: AppColor.icons,
         currentIndex: _currentIndex,
         onTap: (value) {
           _currentIndex = value;
           widget.onTap?.call(value);
         },
         items: [
-          BottomNavigationBarItem(icon: AppIcon.check(), label: 'Главная'),
-          BottomNavigationBarItem(icon: AppIcon.check(), label: 'Каталог'),
-          BottomNavigationBarItem(icon: AppIcon.check(), label: 'Проекты'),
-          BottomNavigationBarItem(icon: AppIcon.check(), label: 'Профиль'),
+          BottomNavigationBarItem(
+            icon: _currentIndex == 0
+                ? AppIcon.menu1(color: AppColor.accent)
+                : AppIcon.menu1(),
+            label: 'Главная',
+          ),
+          BottomNavigationBarItem(
+            icon: _currentIndex == 1
+                ? AppIcon.menu2(color: AppColor.accent)
+                : AppIcon.menu1(),
+            label: 'Каталог',
+          ),
+          BottomNavigationBarItem(
+            icon: _currentIndex == 2
+                ? AppIcon.menu3(color: AppColor.accent)
+                : AppIcon.menu1(),
+            label: 'Проекты',
+          ),
+          BottomNavigationBarItem(
+            icon: _currentIndex == 3
+                ? AppIcon.menu4(color: AppColor.accent)
+                : AppIcon.menu1(),
+            label: 'Профиль',
+          ),
         ],
       ),
     );
